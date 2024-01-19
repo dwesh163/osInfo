@@ -6,7 +6,8 @@ async function fetchAPI() {
 	const url = new URL(window.location.href);
 	console.log(url.hostname);
 	try {
-		const response = await fetch(url.hostname + ':4000');
+		console.log('http://' + url.hostname + ':4000');
+		const response = await fetch('http://' + url.hostname + ':4000');
 
 		if (!response.ok) {
 			throw new Error('Network response was not ok');
