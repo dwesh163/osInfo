@@ -4,7 +4,7 @@ async function fetchAPI() {
 	$('.TextBox').hide();
 
 	const url = new URL(window.location.href);
-
+	console.log(url.hostname);
 	try {
 		const response = await fetch(url.hostname + ':4000');
 
