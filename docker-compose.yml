@@ -1,0 +1,23 @@
+version: '3.4'
+services:
+    osInfo_api:
+        image: node:alpine
+        container_name: OsInfo
+        command: /bin/sh -c "npm i && node index.js"
+        ports:
+            - 4000:4000
+        working_dir: /srv/app
+        volumes:
+            - ./api:/srv/app
+        tty: true
+        privileged: true
+
+    osInfo_web:
+        image: node:alpine
+        container_name: nodeserver
+        command: /bin/sh -c "npm i && cd page && npx http-server"
+        working_dir: /srv/app
+        ports:
+            - '8080:8080'
+        volumes:
+            - ./web:/srv/app
