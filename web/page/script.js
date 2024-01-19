@@ -24,11 +24,23 @@ async function fetchAPI() {
 }
 
 function setTable(data) {
+	const dataList = [
+		['Manufacturer', 'systemInfo.manufacturer'],
+		['Model', 'systemInfo.version'],
+		['Serial Number', 'systemInfo.serial'],
+		['Temperature', 'cpuTemperatureInfo.main'],
+		['CPU Manufacturer', 'cpuInfo.manufacturer'],
+		['Brand', 'cpuInfo.brand'],
+		['Cores', 'cpuInfo.cores'],
+		['Total', 'memInfo.total'],
+	];
+
 	const table = document.createElement('table');
 	table.classList.add('table', 'table-bordered');
 
 	const thead = document.createElement('thead');
 	const tr = document.createElement('tr');
+	tr.innerHTML = '<tr><th>Name</th><th>Value</th></tr>';
 	thead.appendChild(tr);
 	table.appendChild(thead);
 
@@ -43,8 +55,9 @@ function setTable(data) {
 		cell1.innerHTML = name;
 		cell2.innerHTML = value;
 	}
-
-	addRow('Constructeur', 'systemInfo.manufacturer');
+	for (const element of dataList) {
+		addRow(element[0], element[1]);
+	}
 
 	table.appendChild(tbody);
 
