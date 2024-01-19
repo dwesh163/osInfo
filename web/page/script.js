@@ -16,6 +16,8 @@ async function fetchAPI() {
 
 		setTable(data);
 
+
+
 		$('.LoadingBox').hide();
 		$('.TextBox').show();
 	} catch (error) {
@@ -27,6 +29,8 @@ async function fetchAPI() {
 }
 
 function setTable(data) {
+
+	$("#model").text() = data["systemInfo"]["model"]
 	const dataList = [
 		['Manufacturer', 'systemInfo.manufacturer'],
 		['Model', 'systemInfo.version'],
