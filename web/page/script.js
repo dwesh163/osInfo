@@ -32,7 +32,7 @@ function setTable(data) {
 		['CPU Manufacturer', 'cpuInfo.manufacturer'],
 		['Brand', 'cpuInfo.brand'],
 		['Cores', 'cpuInfo.cores'],
-		['Total', 'memInfo.total'],
+		['Total Size', 'memInfo.total'],
 	];
 
 	const table = document.createElement('table');
