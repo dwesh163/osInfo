@@ -3,9 +3,11 @@ async function fetchAPI() {
 	$('.UnavailableData').hide();
 	$('.TextBox').hide();
 
-	const url = `http://127.0.0.1:4000`;
+	const url = new URL(window.location.href);
+
 	try {
-		const response = await fetch(url);
+		const response = await fetch(url.hostname + ':4000');
+
 		if (!response.ok) {
 			throw new Error('Network response was not ok');
 		}
